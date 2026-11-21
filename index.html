@@ -364,11 +364,11 @@
     <div class="input-card">
       <div class="input-group">
         <label>Start Assessment</label>
-        <input type="number" id="startNo" value="1073009742">
+        <input type="number" id="startNo" value="">
       </div>
       <div class="input-group">
         <label>End Assessment</label>
-        <input type="number" id="endNo" value="1073009752">
+        <input type="number" id="endNo" value="">
       </div>
       <div class="input-group">
         <label>Min Outstanding (₹)</label>
@@ -1425,7 +1425,6 @@ tabBulk.addEventListener('click', () => {
     const max = maxAmtInput.value.trim() === '' ? null : parseFloat(maxAmtInput.value);
     const includePTIS = withPTISCheck.checked;
     if (isNaN(start) || isNaN(end) || start > end) return showError('Enter a valid range (Start ≤ End).');
-    if (end - start + 1 > 500) return showError('Limit to 500 numbers per run.');
     if (min !== null && max !== null && min > max) return showError('Min > Max.');
     lastRange = { start, end, min, max };
     try { await runExtraction(start, end, min, max, includePTIS); }
